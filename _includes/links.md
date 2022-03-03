@@ -12,6 +12,7 @@
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
+[git-novice]: https://swcarpentry.github.io/git-novice
 [github-importer]: https://import2.github.com/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
@@ -34,6 +35,7 @@
 [osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
+[python-novice-inflammation]: https://swcarpentry.github.io/python-novice-inflammation
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.org/project/PyYAML/
 [r-markdown]: https://rmarkdown.rstudio.com/
@@ -41,6 +43,7 @@
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
 [ruby-installer]: https://rubyinstaller.org/
 [rubygems]: https://rubygems.org/pages/download/
+[shell-novice]: https://swcarpentry.github.io/shell-novice
 [styles]: https://github.com/carpentries/styles/
 [swc-lessons]: https://software-carpentry.org/lessons/
 [swc-releases]: https://github.com/swcarpentry/swc-releases
