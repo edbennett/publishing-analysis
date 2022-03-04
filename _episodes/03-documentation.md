@@ -14,7 +14,58 @@ keypoints:
 - "Use shell script or similar to automate the steps you would take to perform your analysis."
 - "Use command-line arguments or other parameters instead of having to manually edit lines of code."
 ---
-FIXME
+
+> ## Truths about READMEs
+>
+> Take a look at the following statements. Which do you think are true?
+>
+>  1. If I write a good enough README, then I'll never need any other documentation
+>  2. If I write a shell script that does my entire analysis, I don't need a README
+>  3. If I don't have a README, my repository is useless.
+>  4. A README should have instructions on using the software, and information on what
+>     it does.
+>  5. A README should be plain text only. Other documentation can have more formatting.
+>
+>> ## Solution
+>>
+>> 1. False. While a good README may be enough documentation for a very small project,
+>>    more frequently you will benefit from other types of documentation; for example,
+>>    comments in your code, and more detailed descriptions for more technical aspects.
+>> 2. False. Even if a shell script completely reproduces your outputs, you should have
+>>    a README to point the user at the right script to run, and to describe what to expect.
+>> 3. False. Having your code in version control and shareable is a good step! But without
+>>    a README, it's likely that others will find your code hard to use or understand.
+>>    (As will you if you return to it after a few months or years!)
+>> 4. True. Normally the ordering is reversed, though, with the description of the purpose
+>>    of the code coming before the details on using it.
+>> 5. False. Historically READMEs were plain text files, but now they take a variety of
+>>    formats; many will use Markdown, which allows headings, bold, italic, images, etc.
+> {: .solution}
+{: .challenge}
+
+
+> ## Removing hardcoded data
+>
+> Take a look at the `calc_fractal.py` file in the repository we worked on in previous
+> challenges. Currently this will generate the files needed for `fig3.py`, but must
+> be edited to allow `fig1.py` and `fig2.py` to run correctly.
+>
+> Adapt `calc_fractal.py` to allow this parameter to instead by set by a command-line
+> argument.
+>
+> Now, adapt the instructions in the README into a shell script to allow the analysis
+> to be run automatically.
+>
+> What other change would be needed to allow this analysis to be run unattended?
+>
+>> ## Solution
+>>
+>> TODO: code solution
+>>
+>> Currently the images are shown on the screen; the user must save and close
+>> each image. It would be better to use `savefig` to save the figure to disk,
+>> instead.
+{: .challenge}
 
 {% include links.md %}
 
