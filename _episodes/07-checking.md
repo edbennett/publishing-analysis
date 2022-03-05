@@ -12,7 +12,24 @@ keypoints:
 - "Running your full analysis end-to-end in a clean environment will highlight most problems."
 - "Binder services (e.g. MyBinder) will create an environment in the cloud based on your definiiton."
 ---
-FIXME
+
+> ## Testing, testing
+>
+> Create a clean Conda environment on your computer based on the specification,
+> in the `challenge` repository, and use it to re-run the analysis. Does it work,
+> and give the same results as when running it in the environment you were previously
+> using?
+>
+> If not, try to work out (or ask a helper) why the results are different.
+{: .challenge}
+
+> ## Another Binder
+>
+> Start a MyBinder instance for your `challenge` repository. Try running the full workflow
+> on MyBinder. Does it gives the same results as you see running on your own machine?
+>
+> If not, try to work out (or ask a helper) why the results are different.
+{: .challenge}
 
 {% include links.md %}
 
