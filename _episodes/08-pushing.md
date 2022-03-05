@@ -17,6 +17,17 @@ keypoints:
 - "DOIs for code repositories can be cited in journal articles the same way as any other publication."
 ---
 
+> ## Keep your tests separate from your real data
+>
+> Because Zenodo is designed to keep research data safe for the long term, it's
+> not a good idea to upload test or toy data to it. For that reason, for
+> this lesson we'll be using the ["sandbox" version of Zenodo][zenodo-sandbox].
+> This behaves exactly like [the real version][zenodo], but is regularly purged
+> of new datasets, and isn't where you should publish your actual research outputs!
+> Remember to go to [the real Zenodo][zenodo] once you're ready to publish your
+> research.
+{: .callout}
+
 > ## Home turf
 >
 > Try and find your own institution's policy on open access. Does it have a
@@ -53,3 +64,5 @@ keypoints:
 
 {% include links.md %}
 
+[zenodo-sandbox]: https://sandbox.zenodo.org
+[zenodo]: https://zenodo.org

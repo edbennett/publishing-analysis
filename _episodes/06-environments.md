@@ -50,6 +50,15 @@ keypoints:
 > {: .solution}
 {: .challenge}
 
+> ## Containers
+>
+> A popular, but somewhat more involved, alternative to using these kinds of environment
+> is to use _containerisation_, with products such as Docker and Apptainer (previously
+> Singularity). This is beyond the scope of what we're covering in this lesson, but
+> the Carpentries Incubator provides an excellent
+> [lesson on getting started with Docker][incubator-docker] that is worth looking at
+> if you are interested.
+{: .callout}
 
 > ## Define some environments
 >
@@ -69,3 +78,4 @@ keypoints:
 
 {% include links.md %}
 
+[incubator-docker]: http://carpentries-incubator.github.io/docker-introduction

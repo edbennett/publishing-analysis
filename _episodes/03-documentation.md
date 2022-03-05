@@ -44,6 +44,22 @@ keypoints:
 {: .challenge}
 
 
+> ## `make` it better
+>
+> A more powerful alternative to using shell scripts to document and automate your
+> analysis process is to use a workflow management tool. A simple one of these that
+> is frequently used in software development is called Make; Software Carpentry has
+> [a lesson on getting started with Make][make-novice].
+>
+> More powerful again are tools like [Snakemake][snakemake] and [Nextflow][nextflow],
+> which are used for very intricate scientific analyses with very many steps.
+>
+> We don't have time to look into these tools in more detail in this lesson, but
+> if you find that your shell scripts are getting too long or intricate, then it
+> it might be worth your time to look into using one of these tools.
+{: .callout}
+
+
 > ## Removing hardcoded data
 >
 > Take a look at the `calc_fractal.py` file in the repository we worked on in previous
@@ -69,3 +85,4 @@ keypoints:
 
 {% include links.md %}
 
+[make-novice]: https://swcarpentry.github.io/make-novice/
