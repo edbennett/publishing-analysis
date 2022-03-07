@@ -164,8 +164,9 @@ $ ls
 {: .language-bash}
 
 ~~~
-frankenstein.txt id_rsa           zipf.py
-full_data.npy    id_rsa.pub
+book_summary.sh    frankenstein.txt   id_rsa.pub         utilities.py
+collate.py         full_data.npy      plotcounts.py
+countwords.py      id_rsa             script_template.py
 ~~~
 {: .output}
 

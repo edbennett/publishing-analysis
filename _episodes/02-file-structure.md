@@ -237,7 +237,7 @@ change so that it can be committed more easily.
 
 ~~~
 $ mkdir bin
-$ git mv zipf.py bin
+$ git mv *.py bin
 ~~~
 {: .language-bash}
 
