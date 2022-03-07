@@ -223,8 +223,7 @@ dig into at a later date.
 To make this easier, you should use directories (folders) to separate out related elements.
 Things like the README, LICENSE, and CITATION, that apply to the whole repository (and that
 users will need to see first) should be at the root of the repository. Code should go in
-its own subdirectory&mdash;in principle this could be called something like `code`, but it
-is conventionally named for the name of the repository.
+its own subdirectory&mdash;by convention this is  called `bin`.
 
 If you have a lot of code, then it might be a good idea to split it up. A directory with
 dozens or hundreds of files in is not conducive to easy reading! Again, grouping related
@@ -237,8 +236,8 @@ command. This moves a file in the same way that `mv` does, but also alerts Git a
 change so that it can be committed more easily.
 
 ~~~
-$ mkdir zipf
-$ git mv zipf.py zipf
+$ mkdir bin
+$ git mv zipf.py bin
 ~~~
 {: .language-bash}
 
@@ -296,15 +295,15 @@ if there were more to do we could do things in stages, working incrementally.
 >> Some things that Kazu might want to consider (there may be others!):
 >>
 >>  * `fig1.py`, `figure_2.py`, and `draw_fig3.py` could be renamed consistently
->>  * The `.py` files could be placed in a `code` subdirectory
+>>  * The `.py` files could be placed in a `bin` subdirectory
 >>  * Code isn't very useful in a ZIP file; it would be better if the programs
 >>    in this file were committed directly to the repository instead
 >>  * The `notes_for_julia.eml` looks like it might be the only documentation
 >>    Kazu has written for this code. Perhaps it could form the basis of a README.
 >>    This should be in the root of the repository, and probably shouldn't be in
 >>    the form of an email.
->>  * `analyze.py` could also be in the `code` directory. Kazu might also want
->>    to have subdirectories of `code` specifically for analysis, plots, and tables.
+>>  * `analyze.py` could also be in the `bin` directory. Kazu might also want
+>>    to have subdirectories of `bin` specifically for analysis, plots, and tables.
 >>  * Kazu should specify licensing and citation information.
 > {: .solution}
 {: .challenge}
