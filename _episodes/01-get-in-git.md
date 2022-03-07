@@ -17,6 +17,76 @@ keypoints:
 - "Leave out e.g. temporary copies, old backup versions, files containing secret or confidential information, and supporting files generated automatically."
 ---
 
+Once upon a time, research was published entirely in the form of papers. If you
+performed a piece of analysis, it would be done by hand in your research notebook
+or lab diary, and carefully written up, so that anyone with a little time could
+easily reproduce it. All relevant data were published as tables, either in the
+main text, or in appendices, or as supplementary material.
+
+Then, computers were invented, and gradually researchers realised that they could
+get analyses done much more quickly (and with much larger data sets) if they got
+the computer to do the analysis instead. As time has gone on, computers have got
+more powerful, and researchers have got more experience of software, the complexity
+of such analyses has increased, as has the volume of data they can deal with.
+
+Now, since computers are deterministic machines, that (should) always give the
+same output given the same input, then one might expect that as this occurred,
+then the ability of other researchers to reproduce exactly the computations that
+were done to produce a paper has increased. Unfortunately, the opposite has
+happened! As the complexity of the analysis has increased, the detail in which
+it is described has not done the same (possibly even gone down), and in most
+fields it did not immediately become common to publish the code used to produce
+a result along with the paper showing the result.
+
+This is now starting to change. There has been increasing pressure for some
+time to publish datasets along with papers, so that the data that were
+collected (in many cases at significant investment of researcher time or
+money) are not lost, but can be studied by others to learn more from them.
+More recently, the same pressure has turned its focus on the software used.
+
+In this lesson, we are going to learn how we can take code that we have written
+to perform the data analysis (or simulation, or anything else) for a paper, and
+publish it so that others are able to reproduce our work. We will focus on Python,
+since that is a popular programming language in research computing, but many of
+the topics we cover will be more broadly applicable.
+
+> ## Alternatives
+>
+> The workflow we will talk about in this lesson is one way to publish code for
+> data analysis&mdash;and in many cases is the shortest path we can take to get
+> to a publishable results. In some cases there are other alternative technologies
+> or ways of doing things, that would take a bit longer to learn but could also
+> be very useful. In the interests of keeping this lesson a reasonable length,
+> and because entire lessons already exist about many of these topics,
+> these will be signposted in callouts to where you can learn more.
+{: .callout}
+
+
+## A first step
+
+In general, we want to do the best job we can; in the context of publishing a
+piece of data analysis code this means having it run automatically, always give
+fully reproducible output, be extensively tested and robust, follow good coding
+standards, etc. However, it is important to not let the perfect be the enemy of
+the good! Even if we could devote all our time
+to polishing it, there would always be some area that could be improved, or
+tidied, or otherwise made slightly better before we called the code "ready" to
+be published. Add on the fact that we need to keep doing research, and teaching,
+and in fact can't devote all our time to polishing one piece of analysis code,
+and it becomes clear that if we wait until we have all our software in a perfect
+state before sharing it, then it will never be shared.
+
+Instead, we can take a more pragmatic approach. If the alternative is publishing
+nothing, then any step we can take towards our goals will be progress! We can
+start with the absolute minimum step, and work incrementally towards where
+we'd ideally like to be.
+
+Remember
+that you were going to publish results based on the code anyway, then the code
+must already be good enough to trust the output of, so there should be no barrier
+to making it available.
+
+
 > ## Difficulties in reproduction
 >
 > Have you ever tried to reproduce someone's published work but not been able to,
@@ -39,6 +109,150 @@ keypoints:
 {: .challenge}
 
 
+The first step we will take today is to get your code into version control,
+and uploaded to GitHub. This will be useful in many ways:
+
+* We can track the history of our analysis as it has developed
+* We can share the repository with collaborators and get their input
+* We will have a backup version in case we make unwanted changes, or lose
+  data (e.g. a broken or stolen laptop)
+* We will be able to connect it to Zenodo later in the lesson to turn the
+  code into a citable object with a DOI
+  
+(If you're already using version control for your analysis code, then you're
+already in a strong starting position!)
+
+Let's start off by opening a Unix shell, and navigating to the example code we
+will be working on for this lesson.
+
+~~~
+$ cd ~/Desktop/zipf
+~~~
+{: .language-bash}
+
+Next, we turn this directory into a Git repository:
+
+~~~
+$ git init
+~~~
+{: .language-bash}
+
+Before we start adding files to the repository, we need to check a couple of things.
+While most problems we can come back to and fix later (in the spirit of working
+incrementally), there are a couple of things that are easier to avoid than they
+are to repair later:
+
+* We do not want to put private or secret data into our repository. Remember that
+  Git stores the complete version history, so even if you remove the secrets in a
+  later commit, they will still be visible to anyone who has access to the full
+  repository. A common problem here is people posting their private tokens for
+  cloud services; there are robots that watch every new upload to GitHub to take
+  any such tokens that get accidentally included, so that they can take over the
+  account and use it for their own nefarious purposes.
+* It's a good idea to avoid putting any large data files into the repository. This
+  means that it's possible for others to take a local copy of the repository to
+  look at the code without needing to download a large volume of data that they
+  don't need. Again, even if you later added a commit removing the data, it would
+  still be there in the commit history, so would need to be downloaded every time
+  someone took a fresh copy of the repository.
+
+Let's see what we currently have:
+
+~~~
+$ ls
+~~~
+{: .language-bash}
+
+~~~
+frankenstein.txt id_rsa           zipf.py
+full_data.npy    id_rsa.pub
+~~~
+{: .output}
+
+Of these, `full_data.npy` is a few megabytes in size, much larger than any of
+the code we are working with, so we will omit that. `id_rsa` is a private SSH
+key, so that definitely doesn't want to be committed&mdash;it probably ended
+up in this directory by accident. `frankenstein.txt` is a piece of data we would
+like to operate on&mdash;since it is small, there are arguments both ways as to
+whether to keep it in the repository or to publish it separately as data.
+For now, let's keep it in; we can always remove it later.
+(We'll talk a little more about data later in the lesson.)
+
+Since we don't want to move or remove files from our existing analysis (which
+assumes files are where they are currently are placed), we can use a `.gitignore`
+file to specify to Git what we don't want to include.
+
+~~~
+$ nano .gitignore
+~~~
+{: .language-bash}
+
+~~~
+*.npy
+id_rsa
+id_rsa.pub
+~~~
+{: .output}
+
+> ## More to ignore
+> 
+> While we're creating a `.gitignore` anyway, you could also add some other
+> common things to make sure not to include in a repository, for example:
+> 
+> * Temporary files, which were used as part of the analysis but are not needed
+> * Cache files, like `__pycache__`, that Python sometimes generates, since
+>   these are useless on anyone else's computer
+> * Duplicate or old copies of code, since we'll be using Git to manage the
+>   history of the code from now on.
+{: .callout}
+
+Now, a check of `git status` will show us what Git would like to commit:
+
+~~~
+$ git status
+~~~
+{: .language-bash}
+
+~~~
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	frankenstein.txt
+	zipf.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+~~~
+{: .output}
+
+To get all of these files into an initial Git commit, we can add them to the
+staging area and then commit the resulting data:
+
+~~~
+$ git add .
+$ git commit -m 'initial commit of analysis code'
+~~~
+{: .language-bash}
+
+Finally, we need to push this to GitHub. Visit [GitHub][github] and create a new,
+empty repository. In this case, let's call the repository `zipf-analysis`. Add
+this repository as a remote to your local copy, and push:
+
+~~~
+$ git remote add origin git@github.com:USERNAME/zipf-analysis
+$ git push origin main
+~~~
+{: .language-bash}
+
+> ## SSH keys
+>
+> If you find that GitHub doesn't let you do this, then you will need to set up
+> key authentication with GitHub. To do this, follow the instructions in the
+> [Software Carpentry Git lesson][git-novice].
+{: .callout}
 
 > ## What to include
 >
@@ -89,5 +303,26 @@ keypoints:
 > Remember to exclude any files that shouldn't be in the code repository.
 {: .challenge}
 
+
+## FAIR's fair
+
+You might have heard of the concept of "FAIR data", and more recently "FAIR
+software". The acronym FAIR stands for:
+
+* Findable
+* Accessible
+* Interoperable
+* Reusable
+
+The standards for data are well-developed; the situation for software (i.e. code)
+is more fluid, and still continuing to develop. For this lesson, we will address
+the first two points; the latter two points are a step further&mdash;the aim for
+now is to let us document what we have done in our own work, rather than provide
+tools for others to use.
+
+In the spirit of not letting the perfect be the enemy of the good, this lesson is
+doing what it can for now; as standards develop, it may be updated.
+
 {% include links.md %}
 
+[github]: https://github.com
