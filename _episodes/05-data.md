@@ -79,7 +79,8 @@ keypoints:
 > ## Get some data
 >
 > Use `curl` to download the [Pakistan biomass field survey][biomass-field] from the
-> World Bank. Adjust the script so that this is done automatically as part of the analysis.
+> World Bank. Adjust the script in the `challenge` repository so that this
+> is done automatically as part of the analysis.
 {: .challenge}
 
 {% include links.md %}
