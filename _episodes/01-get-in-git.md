@@ -254,6 +254,12 @@ $ git push origin main
 > [Software Carpentry Git lesson][git-novice].
 {: .callout}
 
+We now have the code that we used for our research stored online, and available.
+If we had no more time, we could put a footnote pointing to this repository,
+and call it done. However, with a little extra effort, there are many ways we
+can improve on this, and as we go through the remainder of the episode we will
+see how.
+
 > ## What to include
 >
 > Anneka has a folder containing the analysis that she has performed,
