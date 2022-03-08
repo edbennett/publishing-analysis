@@ -79,7 +79,7 @@ the details in later episodes.
 Let's commit this to the repository now.
 
 ~~~
-$ git add README
+$ git add README.txt
 $ git commit -m 'add a README'
 $ git push origin main
 ~~~
@@ -149,7 +149,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Again, let's commit and push:
 
 ~~~
-$ git add README
+$ git add LICENSE
 $ git commit -m 'add a LICENSE'
 $ git push origin main
 ~~~
@@ -195,7 +195,7 @@ V. Dracula, to appear in Annals of Computational Linguistics, 2022
 Again, we should now commit and push this:
 
 ~~~
-$ git add README
+$ git add CITATION
 $ git commit -m 'give information on how to cite'
 $ git push origin main
 ~~~
@@ -249,7 +249,7 @@ Let's give it its own `data` directory for now.
 $ mkdir data
 $ git mv frankenstein.txt data
 $ git commit -m 'reorganise directory structure'
-$ git push
+$ git push origin main
 ~~~
 {: .language-bash}
 
@@ -268,6 +268,7 @@ if there were more to do we could do things in stages, working incrementally.
 > idea. While it's too much for the time we have this week, the (free, online) book
 > [Research Software Engineering with Python][py-rse] has a section on
 > [Creating Packages with Python][py-rse-packaging].
+{: .callout}
 
 > ## Tidying up
 >
