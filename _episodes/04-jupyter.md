@@ -13,7 +13,184 @@ keypoints:
 - "Jupyter Notebook can be run in a non-linear order, and store their output as well as their input"
 - "Remove all output from notebooks before committing to a pure code repository."
 - "Test notebooks from a fresh kernel, or run them from the command line with `runipy`."
+- "Use environment variables to pass arguments into a notebook."
 ---
+
+Since their introduction barely a decade ago, Jupyter Notebooks have become an incredibly
+popular tool for working interactively with data and code (in particular Python code).
+The notebook structure means that compared to an interactive Python session, a lot more
+is saved, and results can be presented contextualised by the code that generated them,
+and with documentation describing what was done. They are held by many to be a "good thing"
+for reproducibility. However, they come with some unique challenges that in some cases
+make reproducibility harder rather than easier! In this episode we will look at what
+causes some of these challenges, and how we can overcome them.
+
+
+## Run in order
+
+Something you've probably noticed when working with Jupyter Notebooks is that you can go
+back and modify and re-run old cells. Unfortunately, this doesn't recompute all of the
+results that had been calculated based on the first run of the cell. This then means that
+the notebook can get into an inconsistent state, where some variables have "old" data
+and some are up to date. It would be very difficult for another researcher to re-run the
+notebook in the same order&mdash;they would need to  painstakingly looking through the
+little numbers Jupyter attaches to the cells after they are run, finding each one
+sequentially.
+
+To avoid this issue, we should always purge the output, restart the kernel, and re-run
+our notebooks top-to-bottom once we think our analysis is complete, to ensure that the
+notebook is consistent and does indeed give the answers we want.
+
+A tool that can help with this when it comes to interacting with notebooks from the
+command line is `runipy`. We can get it from `pip`:
+
+~~~
+$ pip install runipy
+~~~
+{: .language-bash}
+
+We can now run a Jupyter notebook top-to-bottom without needing to open a web browser.
+For example [spiral.ipynb](../files/spiral.ipynb):
+
+~~~
+$ runipy spiral.ipynb
+~~~
+{: .language-bash}
+
+~~~
+03/08/2022 03:17:30 PM INFO: Reading notebook files/spiral.ipynb
+03/08/2022 03:17:32 PM INFO: Running cell:
+%matplotlib inline
+import matplotlib.pyplot as plt
+import numpy as np
+
+03/08/2022 03:17:32 PM INFO: Cell returned
+03/08/2022 03:17:32 PM INFO: Running cell:
+x = np.linspace(0, 20, 1000)
+plt.plot(x * np.sin(x), x * np.cos(x))
+plt.savefig('spiral.png')
+
+03/08/2022 03:17:32 PM INFO: Cell returned
+03/08/2022 03:17:32 PM INFO: Running cell:
+
+
+03/08/2022 03:17:33 PM INFO: Cell returned
+03/08/2022 03:17:33 PM INFO: Shutdown kernel
+~~~
+{: .output}
+
+We get a log of the progress of running the notebook, and the file `spiral.png` is
+generated just as it would be if we had used a browser.
+
+
+## Stripping output
+
+There are two reasons one might want to commit a Jupyter notebook to a Git repository:
+
+1. To share the results of an analysis, including the code that generated it for
+   context. In this case, the output is key and needs to be retained as part of
+   the file.
+2. To keep track of, or share, the code used, with the intention that others generate
+   the output. In this case, the output is in fact a hindrance.
+
+Why is the output a hindrance in a Jupyter notebook in Git? There are a few reasons:
+firstly, it makes the file much larger than it needs to be, since there are most likely
+images (e.g. plots) in it that will take up much more space than the code. Another is that
+time the notebook is run it will change some aspect of the output (e.g. the cell numbers).
+This means Git will see the file as changed and suggest we commit it, even if no change
+has been made to the code we actually want to track.
+
+Manually clearing the output before quitting each Jupyter Notebook session will avoid this,
+but is difficult to remember every time. More convenient is a tool called `nbstripout`,
+which again is available from `pip`.
+
+~~~
+$ pip install nbstripout
+~~~
+{: .language-bash}
+
+We can now manually strip the output from a notebook with:
+
+~~~
+$ nbstripout spiral.ipynb
+~~~
+{: .language-bash}
+
+If we want to go a step further, we can even get `nbstripout` to attach itself to our
+local copy of the repository, and automatically strip notebook as we commit them, so
+that we never accidentally commit a notebook with output in.
+
+~~~
+$ nbstripout --install
+~~~
+{: .language-bash}
+
+Of course, if we have a use case where we want to commit notebooks with output, we would
+not want to install `nbstripout` in this way. The `nbstripout --install` command only
+attaches `nbstripout` to the current repository, so we can be selective about which
+repositories get this treatment.
+
+
+> ## Diff and merge
+>
+> You may recall that Git has some powerful tools for helping resolve merge conflicts,
+> where you and a collaborator have edited the same file at different times.
+> The structure of a Jupyter Notebook makes this much harder to resolve than it would
+> be for a plain text file. Fortunately, there are is a tool available to help with this,
+> called `nbdime`. If you will be collaborating with others on a repository that contains
+> Jupyter Notebooks, then reviewing [the documentation for `nbdime`][nbdime] (and installing
+> it) is very much recommended!
+{: .callout}
+
+## Passing arguments to notebooks
+
+Unlike regular Python programs, notebooks can't take command-line arguments. But we've
+already discussed in the previous episode that we don't want to have to manually edit
+code to set the right parameters for the particular analysis we want to perform.
+
+One way of working around this problem is by using environment variables. These are
+a general feature of most operating systems; we can set variables in a shell and have
+them accessible within programs running inside that shell.
+
+Environment variables are accessible in Python via the `os.environ` dictionary. By
+convention, the names of environment variables are written in all capitals:
+
+~~~
+import os
+
+print(os.environ)
+~~~
+{: .language-python}
+
+Let's say that we would like to adjust the size of the spiral being drawn by
+`spiral.ipynb`. We can look for an environment variable called `SPIRAL_MAX_X`, and
+if one is found, use that in place of the `20` that we are currently using.
+We replace the line `x = np.linspace(0, 20, 1000)` with:
+
+~~~
+import os
+
+max_x = float(os.environ.get('SPIRAL_MAX_X', 20))
+x = np.linspace(0, max_x, 1000)
+~~~
+{: .language-python}
+
+The `.get()` method of a dictionary will give us the element corresponding to the key
+we passed (`'SPIRAL_MAX_X''`), unless there is no such element, in which case it will
+return the second parameter (`20`). Since environment variables are always strings of
+text, we then need to convert the result into a number so that Matplotlib understands
+it.
+
+To call this with `runipy`, we can add the environment variable definitions at the start
+of the line.
+
+~~~
+$ SPIRAL_MAX_X=100 runipy spiral.ipynb
+~~~
+{: .language-bash}
+
+This will now give us a much tighter spiral.
+
 
 > ## Bringing matters to order
 >
@@ -54,10 +231,12 @@ keypoints:
 
 > ## Commit a notebook
 >
-> Add the notebook from the previous challenge to the `challenge` repository.
-> Before you commit, do the following cleanup tasks:
+> Install `nbstripout` into the `challenge` repository. Add the `maizeexports.ipynb`
+> notebook to the repository and commit it; what messages do you see? Has the notebook
+> been changed in the working directory?
 >
-> * Remove any output from the notebook
+> Now that the notebook is version controlled, do some tidying of the repository:
+>
 > * Adjust the notebook to output to files rather than the screen
 > * Attribute authorship for code that you didn't write
 > * Add documentation of what the notebook does
@@ -67,3 +246,4 @@ keypoints:
 
 {% include links.md %}
 
+[nbdime]: https://nbdime.readthedocs.io/en/latest/
