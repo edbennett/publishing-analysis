@@ -50,6 +50,25 @@ publish it so that others are able to reproduce our work. We will focus on Pytho
 since that is a popular programming language in research computing, but many of
 the topics we cover will be more broadly applicable.
 
+> ## Reproduce?
+>
+> The word "reproduce" here is being used with a specific meaning: another researcher
+> should be able to take the same data, and apply the same analysis, and get the same
+> result. This is distinct from: "replicability", where another researcher should be
+> able to apply the same analytical techniques to a fresh, different data set, and
+> still get the same results; "robustness", where applying different analytical
+> techniques to the same data give the same result; and "generalisability", where
+> applying different analytical techniques to freshly-collected data give the same
+> result.
+>
+> Reproducibility is in principle the simplest of these to achieve&mdash;since we are
+> using deterministic machines, it should be achievable to repeat the same analysis on
+> the same data. However, there are still challenges that need to be overcome to get
+> there.
+>
+> [The Turing Way][turing-way] has more detail on these definitions.
+{: .callout}
+
 > ## Alternatives
 >
 > The workflow we will talk about in this lesson is one way to publish code for
@@ -333,3 +352,4 @@ doing what it can for now; as standards develop, it may be updated.
 {% include links.md %}
 
 [github]: https://github.com
+[turing-way]: https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html
