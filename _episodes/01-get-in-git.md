@@ -269,7 +269,7 @@ see how.
 >
 > * `fig5.py`, which plots a graph used in the paper draft
 > * A folder called `__pycache__`; Anneka isn't sure what this is
-> * `analyse_slides.py`, which doesn't generate anythin included in the
+> * `analyse_slides.py`, which doesn't generate anything included in the
 >   paper directly, but generates numbers needed by `fig5.py`
 > * `table3.tex`, an output file used in the publication
 > * A folder called `tensorflow` containing the source code for the TensorFlow library, which Anneka needed to manually install
