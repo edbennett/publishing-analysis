@@ -31,3 +31,4 @@ Download the [zipf archive](/files/zipf.zip) and extract it to your Desktop.
 
 [py-rse]: https://merely-useful.tech/py-rse/
 [swc-github-keys]: https://swcarpentry.github.io/git-novice/07-github/index.html
+[swc-workshop]: https://carpentries.github.io/workshop-template/
