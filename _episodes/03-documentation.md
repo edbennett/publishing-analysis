@@ -141,6 +141,13 @@ util.collection_to_csv(word_counts, num=args.num)
 Currently the README is no longer correct, since the program doesn't automatically
 look for `frankenstein.txt` any more. So, let's hold off committing it for now.
 
+> ## More `argparse`
+>
+> `argparse` has a huge array of options, which is too detailed to go into here.
+>
+> Check out the [argparse documentation][argparse] to find out more.
+{: .callout}
+
 > ## Try it yourself
 >
 > Get the `plotcounts.py` program to also use `argparse`. Allow the user to specify
@@ -381,4 +388,5 @@ the next one, and so on, until we get to the point we have now reached.
 
 {% include links.md %}
 
+[argparse]: https://docs.python.org/3/library/argparse.html
 [make-novice]: https://swcarpentry.github.io/make-novice/
