@@ -60,9 +60,9 @@ To reproduce the figures in the publication, follow these steps:
 Let's commit this:
 
 ~~~
-# git add README
-# git commit -m 'add run instructions to README'
-# git push origin main
+$ git add README
+$ git commit -m 'add run instructions to README'
+$ git push origin main
 ~~~
 {: .language-bash}
 
