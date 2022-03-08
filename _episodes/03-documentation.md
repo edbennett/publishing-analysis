@@ -384,6 +384,7 @@ the next one, and so on, until we get to the point we have now reached.
 >> Currently the images are shown on the screen; the user must save and close
 >> each image. It would be better to use `savefig` to save the figure to disk,
 >> instead.
+> {: .solution}
 {: .challenge}
 
 {% include links.md %}
