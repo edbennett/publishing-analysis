@@ -17,4 +17,11 @@ research.
 > which is the same material as a Software Carpentry workshop would cover.
 {: .prereq}
 
+This lesson incorporates material from [Research Software Engineering in Python][py-rse]
+by Damien Irving, Kate Hertweck, Luke Johnston, Joel Ostblom, Charlotte Wickham,
+and Greg Wilson, and the [supporting repository][py-rse-github]
+
 {% include links.md %}
+
+[py-rse]: https://merely-useful.tech/py-rse/
+[py-rse-github]: https://github.com/amira-khan/zipf/
