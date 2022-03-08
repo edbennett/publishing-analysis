@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Data"
 teaching: 10
 exercises: 5
 questions:
