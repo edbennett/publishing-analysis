@@ -391,3 +391,5 @@ the next one, and so on, until we get to the point we have now reached.
 
 [argparse]: https://docs.python.org/3/library/argparse.html
 [make-novice]: https://swcarpentry.github.io/make-novice/
+[nextflow]: https://www.nextflow.io
+[snakemake]: https://snakemake.github.io
