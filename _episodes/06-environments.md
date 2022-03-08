@@ -19,9 +19,9 @@ keypoints:
 > ## Spot the difference
 >
 > Take a look at the following plot of cattle populations by country, which was generated
-> by [a Python program using Matplotlib](files/cattlepopulations.py).
+> by [a Python program using Matplotlib](../files/cattlepopulations.py).
 >
-> ![A bar chart for cattle population by country or ergion, showing bars for India, Brazil, USA, China, EU, and Argentina. The country labels are offset to the left of the bars, which are royal blue.](fig/cattle.png)
+> ![A bar chart for cattle population by country or ergion, showing bars for India, Brazil, USA, China, EU, and Argentina. The country labels are offset to the left of the bars, which are royal blue.](../fig/cattle.png)
 >
 > Try and run the `cattlepopulations.py` file yourself. Does the output you see look the same
 > as the one above? If not, why not?

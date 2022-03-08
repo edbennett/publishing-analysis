@@ -300,7 +300,7 @@ see how.
 
 > ## Creating another repository
 >
-> Download [this example archive of code](files/challenge.zip) and extract it to
+> Download [this example archive of code](../files/challenge.zip) and extract it to
 > a convenient location on your computer. This will give you a directory
 > containing a small piece of research software, and the data it was last used
 > to analyse.

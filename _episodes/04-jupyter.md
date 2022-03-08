@@ -21,9 +21,9 @@ keypoints:
 > he disagreed with. Prof. Nuss included the following figure in a publication
 > draft, which Sanjay is suspicious of.
 >
-> ![A graph of Relative maize exports by country, showing bars for USA, Argentina, Brazil, Ukraine, France, Russia, Romania, and Hungary. Approximate numbers are 1.0, 0.45, 0.2, 0.2, 0.2, 0.1, 0.1, 0.05](fig/maizeexports.png)
+> ![A graph of Relative maize exports by country, showing bars for USA, Argentina, Brazil, Ukraine, France, Russia, Romania, and Hungary. Approximate numbers are 1.0, 0.45, 0.2, 0.2, 0.2, 0.1, 0.1, 0.05](../fig/maizeexports.png)
 >
-> In response to a query from Sanjay, Prof. Nuss provides [the Jupyter notebook that she used to perform the analysis](files/maizeexports.ipynb).
+> In response to a query from Sanjay, Prof. Nuss provides [the Jupyter notebook that she used to perform the analysis](../files/maizeexports.ipynb).
 >
 > Sanjay finds that when he runs Prof. Nuss's code, it doesn't give the same plot As
 > is included in the paper draft. What has happened to cause this?
