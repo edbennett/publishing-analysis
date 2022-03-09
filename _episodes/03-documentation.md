@@ -268,8 +268,8 @@ $ nano bin/run_analysis.sh
 mkdir results
 for book in dracula frankenstein
 do
-    python countwords.py ${book}.txt --num 100 > results/${book}.csv
-    python plotcounts.py results/${book}.csv --outfile results/${book}.pdf
+    python bin/countwords.py data/${book}.txt --num 100 > results/${book}.csv
+    python bin/plotcounts.py results/${book}.csv --outfile results/${book}.pdf
 done
 ~~~
 {: .language-bash}
@@ -288,7 +288,7 @@ Results will be placed in a `results/` directory.
 Now that the README and the code are consistent, we can commit this:
 
 ~~~
-$ git add countwords.py plotcounts.py README
+$ git add bin/countwords.py bin/plotcounts.py README.txt
 $ git commit -m 'automate analysis'
 $ git push origin main
 ~~~
