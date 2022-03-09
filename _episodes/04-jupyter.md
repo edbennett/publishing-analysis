@@ -33,9 +33,15 @@ back and modify and re-run old cells. Unfortunately, this doesn't recompute all 
 results that had been calculated based on the first run of the cell. This then means that
 the notebook can get into an inconsistent state, where some variables have "old" data
 and some are up to date. It would be very difficult for another researcher to re-run the
-notebook in the same order&mdash;they would need to  painstakingly looking through the
+notebook in the same order&mdash;they would need to painstakingly look through the
 little numbers Jupyter attaches to the cells after they are run, finding each one
-sequentially.
+sequentially. And in some cases that wouldn't be sufficient&mdash; for example, if a
+cell had been edited since the last time it was run.
+
+As an example, let's look at [spiral.ipynb](../files/spiral.ipynb). Since the second cell
+specifies to draw a spiral, we would expect to see one in the output of the third cell,
+but instead we see a straight line. Looking carefully, we can see that the second cell
+was run _after_ the third cell, so presumably the value of `line_to_draw` was changed.
 
 To avoid this issue, we should always purge the output, restart the kernel, and re-run
 our notebooks top-to-bottom once we think our analysis is complete, to ensure that the
@@ -50,7 +56,6 @@ $ pip install runipy
 {: .language-bash}
 
 We can now run a Jupyter notebook top-to-bottom without needing to open a web browser.
-For example [spiral.ipynb](../files/spiral.ipynb):
 
 ~~~
 $ runipy spiral.ipynb
@@ -190,6 +195,20 @@ $ SPIRAL_MAX_X=100 runipy spiral.ipynb
 {: .language-bash}
 
 This will now give us a much tighter spiral.
+
+
+## To notebook or not to notebook
+
+Many computational researchers treat notebooks as a tool for data exploration, or
+presentation, rather than for reproducibility. They will use notebooks to prototype
+and find interesting features, before formalising the analysis that has been done into
+a plain `.py` file to make the analysis reproducible. These can then be loaded into
+smaller notebooks as modules to present and highlight particular aspects of the results.
+If you have the time to do this, it is certainly not a bad workflow, but if you have a
+large amount of Jupyter Notebooks containing your entire analysis for a paper or thesis,
+then taking that and porting it back to plain Python files may take more time than you
+have available, in which case tidying up the notebook and making it more reproducible
+in and of itself may be more achievable in the time you have available.
 
 
 > ## Bringing matters to order
