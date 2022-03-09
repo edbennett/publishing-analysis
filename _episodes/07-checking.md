@@ -13,6 +13,92 @@ keypoints:
 - "Binder services (e.g. MyBinder) will create an environment in the cloud based on your definiiton."
 ---
 
+## Creating an environment from a definition
+
+Having exported our environment, it would be useful to check the reverse process. How do
+we turn an environment definition into an environment we can use? We can use Conda to
+achieve both of these.
+
+> ## Other virtual environments
+>
+> For pip and  `requirements.txt`, strictly speaking Conda is not required; any number
+> of solutions (e.g. `venv`, `pipenv`) could be used instead. However, since we are
+> currently using Anaconda to provide Python to us, the Conda-based solution is likely
+> to be a little cleaner.
+{: .callout}
+
+To test the pip-based solution, we first create a new environment with only Python, and
+activate it. Then, we tell pip to install from our requirements file:
+
+~~~
+$ conda create -n pip-test python=3.9
+$ conda activate pip-test
+$ pip install -r requirements.txt
+~~~
+{: .language-bash}
+
+We can do a similar thing for the Conda export:
+
+~~~
+$ conda env create -f=environment.yml -n conda-test
+$ conda activate conda-test
+~~~
+{: .language-bash}
+
+Finally, we can re-check that the created environment runs the analysis just as well as the
+original:
+
+~~~
+$ bash ./bin/run_analysis.sh
+~~~
+{: .language-bash}
+
+Now that we've tested that it works, we should add the environment to our repository.
+
+~~~
+$ git add environment.yml
+$ git commit -m 'define software environment'
+$ git push origin main
+~~~
+
+
+## Running on someone else's computer
+
+We've now verified that we can recreate the computational environment we used for a piece
+of work. However, we have only done this on our own computer. Since other researchers won't
+have access to our computer, it would be good if we could test on neutral ground, to check
+that the analysis isn't specific to our own machine, but will run elsewhere as well.
+Even better would be if we could also run any researcher's (public) code there, to avoid
+needing to download each and fill our disk with Conda environments as we explore what open
+software is available.
+
+There is a tool that will help with this called [Binder][binder]. This is a piece of
+software that will identify the environment requirements (looking for files like
+`requirements.txt` and `environment.yml`) and automatically build a "container" that
+runs exactly the software requested. No matter where in the world you are, it will
+end up with the same operating system and package versions. Once it has built the
+environment, it will then launch a Jupyter Notebook environment for you to run the
+code from the repository. The primary design of Binder is to enable exploring others'
+data, but it also works for testing environments and running code outside of notebooks.
+
+There is a public Binder instance available at [MyBinder][mybinder], which we can use for
+testing. (This is run on a relatively small budget, so sometimes it is short on resources;
+you shouldn't treat it as a free resource to run long-running computations on! If you need
+to run Binders regularly, or need compute resources bigger than what you have on your own
+machine, then talk to the research computing group at your institution, who are likely to
+have suggestions on where to turn.)
+
+To test our `zipf` repository and its environment, we can enter the URL to the repository
+into the [MyBinder home page][mybinder]. In principle we could test the repository state
+at any point in its history, and launch a specific notebook if we wanted. For now, we will
+test the most recent commit, and launch the Binder without targeting any one notebook.
+
+If you want to encourage others to explore your data with Binder, the home page also gives
+you the option to add a badge to your README that will take users directly to a new Binder
+for the repository without needing to type the details in by hand.
+
+
+
 > ## Testing, testing
 >
 > Create a clean Conda environment on your computer based on the specification,
@@ -33,3 +119,5 @@ keypoints:
 
 {% include links.md %}
 
+[binder]: https://mybinder.readthedocs.io/en/latest/
+[mybinder]: https://mybinder.org
