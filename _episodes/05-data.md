@@ -186,6 +186,7 @@ performing, so we won't go into more detail about how to create this.
 > having the other makes more sense. For more information on automated testing, see
 > for example,
 > [Introduction to automated testing and continuous integration in Python][python-testing-ci]
+{: .callout}
 
 > ## To publish or not to publish
 >
