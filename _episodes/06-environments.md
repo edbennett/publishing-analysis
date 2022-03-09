@@ -132,6 +132,15 @@ $ cat environment.yml
 These files are now much shorter, so will be much quicker to install.
 
 
+> ## Alternatives to Conda and Pip
+>
+> An alternative to Conda's `environment.yml` and Pip's `requirements.txt` is a tool
+> called [Poetry][poetry]. This is built on top of Pip, and is growing in popularity
+> among non-academic Python users, and may eventually replace Conda in academic
+> environments as well.
+{: .callout}
+
+
 
 > ## Spot the difference
 >
@@ -196,3 +205,4 @@ These files are now much shorter, so will be much quicker to install.
 {% include links.md %}
 
 [incubator-docker]: http://carpentries-incubator.github.io/docker-introduction
+[poetry]: https://python-poetry.org
