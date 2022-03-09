@@ -206,7 +206,7 @@ performing, so we won't go into more detail about how to create this.
 >
 >> ## Solution
 >>
->> Since the data are already openly available, there is no need for Quang to re-publish them.
+>> Since the data are already openly available, there is no need for Navia to re-publish them.
 >> (Indeed, if she did, it would be misrepresenting others' work as her own.)
 >> The code is likely to be too detailed to be of interest to many readers of the publication,
 >> who will instead be interested in the results of the analysis.
