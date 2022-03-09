@@ -144,7 +144,7 @@ $ nano bin/run_analysis.sh
 ~~~
 mkdir data
 curl -L -o data/frankenstein.txt https://www.gutenberg.org/files/84/84-0.txt
-curl -L -o data/frankenstein.txt https://www.gutenberg.org/files/345/345-0.txt
+curl -L -o data/dracula.txt https://www.gutenberg.org/files/345/345-0.txt
 ~~~
 {: .language-bash}
 
@@ -156,11 +156,21 @@ $ nano README.txt
 {: .language-bash}
 
 ~~~
-The `run_analysis.sh` script will automatically pull the full text of the two books to
+This script will automatically pull the full text of the two books to
 process (Frankenstein and Dracula) from Project Gutenberg (gutenberg.org) and place
 them into the `data` directory. Internet access is required for this to work.
 ~~~
 {: .output}
+
+Now that this is done, we mustn't forget to commit it back to the Git repository.
+
+~~~
+$ git add README.txt bin/run_analysis.sh
+$ git commit -m 'remove data; retrieve automatically from Gutenberg instead'
+$ git push origin main
+~~~
+{: .language-bash}
+
 
 > ## Getting more data off the web
 >
