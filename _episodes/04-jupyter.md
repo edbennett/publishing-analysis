@@ -12,7 +12,7 @@ objectives:
 keypoints:
 - "Jupyter Notebook can be run in a non-linear order, and store their output as well as their input"
 - "Remove all output from notebooks before committing to a pure code repository."
-- "Test notebooks from a fresh kernel, or run them from the command line with `runipy`."
+- "Test notebooks from a fresh kernel, or run them from the command line with `jupyter nbconvert`."
 - "Use environment variables to pass arguments into a notebook."
 ---
 
@@ -45,48 +45,19 @@ was run _after_ the third cell, so presumably the value of `line_to_draw` was ch
 
 To avoid this issue, we should always purge the output, restart the kernel, and re-run
 our notebooks top-to-bottom once we think our analysis is complete, to ensure that the
-notebook is consistent and does indeed give the answers we want.
-
-A tool that can help with this when it comes to interacting with notebooks from the
-command line is `runipy`. We can get it from `pip`:
-
-~~~
-$ pip install runipy
-~~~
-{: .language-bash}
-
-We can now run a Jupyter notebook top-to-bottom without needing to open a web browser.
+notebook is consistent and does indeed give the answers we want. However, this is
+laborious, and ideally we would like to automate it. Fortunately, Jupyter gives us a tool
+to do it:
 
 ~~~
-$ runipy spiral.ipynb
+$ jupyter nbconvert --to notebook --execute spiral.ipynb
 ~~~
 {: .language-bash}
 
-~~~
-03/08/2022 03:17:30 PM INFO: Reading notebook files/spiral.ipynb
-03/08/2022 03:17:32 PM INFO: Running cell:
-%matplotlib inline
-import matplotlib.pyplot as plt
-import numpy as np
-
-03/08/2022 03:17:32 PM INFO: Cell returned
-03/08/2022 03:17:32 PM INFO: Running cell:
-x = np.linspace(0, 20, 1000)
-plt.plot(x * np.sin(x), x * np.cos(x))
-plt.savefig('spiral.png')
-
-03/08/2022 03:17:32 PM INFO: Cell returned
-03/08/2022 03:17:32 PM INFO: Running cell:
-
-
-03/08/2022 03:17:33 PM INFO: Cell returned
-03/08/2022 03:17:33 PM INFO: Shutdown kernel
-~~~
-{: .output}
-
-We get a log of the progress of running the notebook, and the file `spiral.png` is
-generated just as it would be if we had used a browser.
-
+The notebook is updated as if we had opened it in the browser and run every cell,
+but we never had to leave the command line. This would then allow the notebook to
+be called from a shell script, or any other tool we've written to automate our
+analysis.
 
 ## Stripping output
 
@@ -107,7 +78,7 @@ has been made to the code we actually want to track.
 
 Manually clearing the output before quitting each Jupyter Notebook session will avoid this,
 but is difficult to remember every time. More convenient is a tool called `nbstripout`,
-which again is available from `pip`.
+which is available from `pip`.
 
 ~~~
 $ pip install nbstripout
@@ -186,11 +157,11 @@ return the second parameter (`20`). Since environment variables are always strin
 text, we then need to convert the result into a number so that Matplotlib understands
 it.
 
-To call this with `runipy`, we can add the environment variable definitions at the start
-of the line.
+To call this with `jupyter nbconvert`, we can add the environment variable definitions
+at the start of the line.
 
 ~~~
-$ SPIRAL_MAX_X=100 runipy spiral.ipynb
+$ SPIRAL_MAX_X=100 jupyter nbconvert --to notebook --execute spiral.ipynb
 ~~~
 {: .language-bash}
 
