@@ -73,7 +73,7 @@ packages that we have installed, as well as the path to the environment on our c
 > Another alternative tool is called [Poetry][poetry]. This combines some of the
 > functionality of `pip freeze` with some of the dependency and environment management
 > aspects of Conda.
-{: .language-python}
+{: .callout}
 
 ## Trimming down an environment
 
