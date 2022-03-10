@@ -29,7 +29,7 @@ code available, to give an indication that:
   to the online collaborative editable version of our paper instead of publishing in a
   journal.
 * The code will be available for the long term. While GitHub has been around for a while,
-  it makes no promises as to long-term avaialability. Published academic journals are
+  it makes no promises as to long-term availability. Published academic journals are
   available from decades or centuries ago; drafts and collaborative notes from that
   period are harder to find.
 * We would like the code to be treated (and cited) as an academic output. GitHub is
@@ -108,12 +108,14 @@ Once this is done, we need to create a "release" of our code on GitHub.
 
 ![Screen shot of the Zipf repository on GitHub, with the "Releases" link in the right-hand sidebar circled](../fig/github-releases-link.png)
 
-To do this, we
-can click through from the repository home page to the Releases page, and from there
-click the "Create a new release" button. The form to create a new release requests some
-information
+To do this, we can click through from the repository home page to the Releases page, and
+from there click the "Create a new release" button.
 
-![Screen shot of the release creation screen within GitHub, showing the fields mentioned below](../fig/create-release.png)
+![Screen shot of the Releases page for the Zipf repository on GitHub, with the "Create a new release" button circled](../fig/github-create-release-button.png)
+
+The form to create a new release requests some information
+
+![Screen shot of the release creation screen within GitHub, showing the fields mentioned below](../fig/github-create-release-form.png)
 
 * Choose a tag: If you use tags in your repository, you can choose which tagged commit
   should be released. If not, then GitHub can automatically create a tag for you when
