@@ -35,19 +35,9 @@ of Python and the packages that were installed, but also the operating system an
 underlying hardware! For now, we will focus on reproducing as much of the original
 environment as we can.
 
-## Exporting your environment
+## Exporting environments with Conda
 
-The `pip` package manager for Python gives us a way of defining the set of Python packages
-currently installed, so that we can install the same set elsewhere. The command to do this
-is `pip freeze`. By default it outputs to standard output; by convention, we place the
-output into a file called `requirements.txt`.
-
-~~~
-$ pip freeze > requirements.txt
-~~~
-{: .language-bash}
-
-Meanwhile, the Conda package manager also gives a way of exporting the current environment.
+The Conda package manager used by Anaconda gives a way of exporting the current environment.
 This includes more than just Python packages; it also includes the specific Python version,
 as well as some dependency packages that would otherwise need to be installed separately.
 We can export our Conda environment as:
@@ -59,15 +49,35 @@ $ cat environment.yml
 {: .language-bash}
 
 By convention the filename for conda environments is `environment.yml`; this file is in
-YAML format, and as we can see includes some more information than the `requirements.txt`.
-Note that in general we will prefer `conda env export` for Conda environments, as
-`pip freeze` gets confused by the way that Conda installs packages. It is also possible to
-construct a `requirements.txt` file by hand, but you must be careful to specify which
-package versions you need, as just the package names will not fully define your environment.
+YAML format. Looking at it, we see it encodes the environment name, the Conda and Pip
+packages that we have installed, as well as the path to the environment on our computer.
+
+> ## If you don't use Conda
+>
+> We have used Conda here because it can define things quite precisely, including the
+> version of Python and many external dependencies in addition to the Python packages
+> being used. However, if you don't use Conda, you can still export an environment.
+>
+> The most basic way is built into Pip. Using `pip freeze` will output a list of all
+> currently installed Pip packages. While this will not work if you are using Conda,
+> since these packages are not available through PyPI, if all your packages were
+> instead installed through Pip, then this gives a very commonly-accepted way to
+> document your environment. By convention the filename for your list of packages
+> is `requirements.txt`.
+>
+> ~~~
+> $ pip freeze > requirements.txt
+> ~~~
+> {: .language-bash}
+>
+> Another alternative tool is called [Poetry][poetry]. This combines some of the
+> functionality of `pip freeze` with some of the dependency and environment management
+> aspects of Conda.
+{: .language-python}
 
 ## Trimming down an environment
 
-We can see that both of these files are very long; this is because we have exported the
+We can see that this file is rather long; this is because we have exported the
 Anaconda base environment. This comes with a huge array of packages that could be useful
 for doing scientific computation. However, it means that it will be a lot of data to
 download for anyone who wants to recreate the environment, and a lot of that data will not
@@ -122,9 +132,7 @@ $ bash ./bin/run_analysis.sh
 Let's export the environment again in both formats:
 
 ~~~
-$ pip freeze > requirements.txt
 $ conda env export -f environment.yml
-$ cat requirements.txt
 $ cat environment.yml
 ~~~
 {: .language-bash}
@@ -132,20 +140,11 @@ $ cat environment.yml
 These files are now much shorter, so will be much quicker to install.
 
 
-> ## Alternatives to Conda and Pip
->
-> An alternative to Conda's `environment.yml` and Pip's `requirements.txt` is a tool
-> called [Poetry][poetry]. This is built on top of Pip, and is growing in popularity
-> among non-academic Python users, and may eventually replace Conda in academic
-> environments as well.
-{: .callout}
-
-
-
 > ## Spot the difference
 >
 > Take a look at the following plot of cattle populations by country, which was generated
-> by [a Python program using Matplotlib](../files/cattlepopulations.py).
+> by [a Python program using Matplotlib](../files/cattlepopulations.py) on an older
+> computer.
 >
 > ![A bar chart for cattle population by country or region, showing bars for India, Brazil, USA, China, EU, and Argentina. The country labels are offset to the left of the bars, which are royal blue.](../fig/cattle.png)
 >

@@ -16,28 +16,8 @@ keypoints:
 ## Creating an environment from a definition
 
 Having exported our environment, it would be useful to check the reverse process. How do
-we turn an environment definition into an environment we can use? We can use Conda to
-achieve both of these.
-
-> ## Other virtual environments
->
-> For pip and  `requirements.txt`, strictly speaking Conda is not required; any number
-> of solutions (e.g. `venv`, `pipenv`) could be used instead. However, since we are
-> currently using Anaconda to provide Python to us, the Conda-based solution is likely
-> to be a little cleaner.
-{: .callout}
-
-To test the pip-based solution, we first create a new environment with only Python, and
-activate it. Then, we tell pip to install from our requirements file:
-
-~~~
-$ conda create -n pip-test python=3.9
-$ conda activate pip-test
-$ pip install -r requirements.txt
-~~~
-{: .language-bash}
-
-We can do a similar thing for the Conda export:
+we turn an environment definition into an environment we can use? Conda gives us the tools
+to do this, too.
 
 ~~~
 $ conda env create -f=environment.yml -n conda-test
@@ -45,7 +25,7 @@ $ conda activate conda-test
 ~~~
 {: .language-bash}
 
-Finally, we can re-check that the created environment runs the analysis just as well as the
+Then, we can re-check that the created environment runs the analysis just as well as the
 original:
 
 ~~~
@@ -60,6 +40,20 @@ $ git add environment.yml
 $ git commit -m 'define software environment'
 $ git push origin main
 ~~~
+
+> ## What about `requirements.txt`?
+>
+> If you have a `requirements.txt` instead of an `environment.yml`, then you can
+> install the required packages with Pip using
+>
+> ~~~
+> $ pip install -r requirements.txt
+> ~~~
+> {: .language-bash}
+>
+> This will work inside a Conda environment, but Conda is not required&mdash;any number
+> of solutions (e.g. `venv`, `pipenv`) could be used instead. 
+{: .callout}
 
 
 ## Running on someone else's computer
