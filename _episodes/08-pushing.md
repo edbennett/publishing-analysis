@@ -80,23 +80,35 @@ long-term as any services currently operate on.
 > research.
 {: .callout}
 
-To publish on Zenodo (and Zenodo Sandbox), we first need to create an account. While
+To publish on Zenodo (and Zenodo Sandbox), we first need to create an account. 
+
+![Screen shot of the Zenodo main page, with the "Sign up" button at the top right circled](../fig/zenodo-signup.png)
+
+While
 this can be done manually, the quickest way for our purposes is to log in using GitHub.
 This will connect our GitHub account with our Zenodo account. If you have one, you can
 also link your ORCID to your Zenodo account, so that your publications on Zenodo are
 easier to tie back to your work in other venues.
 
-![Screen shot of the Zenodo main page, with the "Sign up" button at the top right circled](../fig/zenodo-signup.png)
+![Screen shot of the Zenodo signup pagem, with the "Sign up with GitHub" button circled](../fig/zenodo-signup-github.png)
 
 Once we are signed up and logged into Zenodo (Sandbox), we can use the drop-down next
-to our email address at the top-right to select the GitHub option. This gives us a
+to our email address at the top-right to select the GitHub option.
+
+![Screen shot of the Zenodo home page with the user menu expanded, and the GitHub option near the bottom of the list circled](../fig/zenodo-menu-github.png)
+
+This gives us a
 three-step process to publish our repository to Zenodo. Firstly, out of the list of
 repositories presented (found from our GitHub account), we choose which we want to publish
 to Zenodo. Let's do that now for the `zipf` repository.
 
 ![Screen shot of the Zenodo GitHub page with `edbennett/zipf` showing under "Enabled repositories"](../fig/zenodo-enabled.png)
 
-Once this is done, we need to create a "release" of our code on GitHub. To do this, we
+Once this is done, we need to create a "release" of our code on GitHub. 
+
+![Screen shot of the Zipf repository on GitHub, with the "Releases" link in the right-hand sidebar circled](../fig/github-releases-link.png)
+
+To do this, we
 can click through from the repository home page to the Releases page, and from there
 click the "Create a new release" button. The form to create a new release requests some
 information
