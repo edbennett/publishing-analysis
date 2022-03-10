@@ -345,8 +345,8 @@ if there were more to do we could do things in stages, working incrementally.
 > problem, but that others with more financial resources may also be able to adapt
 > to do some very impactful research that could form the basis of an Impact Case
 > Study. Due to the way the field works, these others would need to be able to
-> distribute the software, but would want to keep the source code changes thay have
-> made proprietary.
+> distribute the software, but would want to prevent others from seeing or
+> redistributing their modified versions.
 >
 > What licenses would you suggest that Kai and Sameth choose for their software?
 >
