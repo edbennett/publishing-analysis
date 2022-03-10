@@ -119,7 +119,8 @@ The form to create a new release requests some information
 
 * Choose a tag: If you use tags in your repository, you can choose which tagged commit
   should be released. If not, then GitHub can automatically create a tag for you when
-  you publish the release.
+  you publish the release&mdash;type the name you want the tag to have in this box.
+  This will frequently be the same as the release name.
 * Target: this should be the branch that you are releasing from. This will most likely
   be the `main` branch.
 * Release title: This should be a version name for the particular release. This is
