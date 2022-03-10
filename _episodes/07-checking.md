@@ -1,7 +1,7 @@
 ---
 title: "Verifying your analysis"
 teaching: 20
-exercises: 10
+exercises: 20
 questions:
 - "How can I check that my analysis is working?"
 - "How do I verify that the environment definition is correct?"

@@ -1,7 +1,7 @@
 ---
 title: "Data"
-teaching: 10
-exercises: 5
+teaching: 30
+exercises: 15
 questions:
 - "How do I get data for my code to work on?"
 - "Where should I store data?"

@@ -1,7 +1,7 @@
 ---
 title: "Publishing in open science repositories"
-teaching: 15
-exercises: 10
+teaching: 20
+exercises: 20
 questions:
 - "How is an open science repository different to something like GitHub?"
 - "How do I create a permanent version of record of my code?"

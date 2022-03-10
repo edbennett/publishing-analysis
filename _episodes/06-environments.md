@@ -1,6 +1,6 @@
 ---
 title: "Reproducible software environments"
-teaching: 30
+teaching: 20
 exercises: 20
 questions:
 - "Why do I need to document the software environment?"

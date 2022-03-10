@@ -1,7 +1,7 @@
 ---
 title: "Documentation and automation"
-teaching: 20
-exercises: 10
+teaching: 60
+exercises: 25
 questions:
 - "How do I tell other researchers how to use my code?"
 - "How can I make it easier for others (or me) to run my full analysis?"

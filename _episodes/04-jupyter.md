@@ -1,7 +1,7 @@
 ---
 title: "Jupyter Notebooks and automation"
-teaching: 15
-exercises: 10
+teaching: 25
+exercises: 20
 questions:
 - "How does using Jupyter Notebooks affect automation and reproducibility?"
 - "How do I put a Jupyter Notebook into a repository?"

@@ -1,7 +1,7 @@
 ---
 title: "Get it in Git"
-teaching: 20
-exercises: 15
+teaching: 45
+exercises: 25
 questions:
 - "Why should I make my code public?"
 - "How do I get files into a GitHub repository?"

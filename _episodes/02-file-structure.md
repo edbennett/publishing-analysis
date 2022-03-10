@@ -1,7 +1,7 @@
 ---
 title: "Structuring your repository"
-teaching: 10
-exercises: 10
+teaching: 40
+exercises: 20
 questions:
 - "How should files be organised in a repository?"
 - "What metadata should be included, and how?"
