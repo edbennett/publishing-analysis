@@ -177,7 +177,7 @@ plot output. This is common in tools used interactively for data exploration, bu
 once you're publishing your analysis then it makes more sense to save to a file
 directly from the program.
 
-This isn't a huge change. In most cases, we can replace `plt.show()` with 
+This isn't a huge change. In most cases, we can replace `plt.show()` with
 `plt.savefig(filename)`. If we are generating multiple plots we will need to be more
 careful, as `savefig` doesn't start a new plot in the way that `show()` does.
 
@@ -365,21 +365,114 @@ the next one, and so on, until we get to the point we have now reached.
 
 > ## Removing hardcoded data
 >
-> Take a look at the `calc_fractal.py` file in the repository we worked on in previous
-> challenges. Currently this will generate the files needed for `fig3.py`, but must
+> Take a look at the `calc_fractal.py` file in the `challenge` repository.
+> Currently this will generate the files needed for `fig3.py`, but must
 > be edited to allow `fig1.py` and `fig2.py` to run correctly.
 >
 > Adapt `calc_fractal.py` to allow this parameter to instead by set by a command-line
 > argument.
 >
+>> ## Solution
+>>
+>> There are a few ways to do this. One is to use some `if`s:
+>>
+>> ~~~
+>> parser = argparse.ArgumentParser()
+>> parser.add_argument('order', type=int, help="Order of the polynomial")
+>> parser.add_argument('outfile', type=str, help="Where to put the output file")
+>> args = parser.parse_args()
+>>
+>> if args.order == 3:
+>>     def polynomial(x):
+>>         return x ** 3 - 1
+>>
+>>     def derivative(x):
+>>         return 3 * x ** 2
+>> elif args.order == 5:
+>>     def polynomial(x):
+>>         return x ** 5 - 1
+>>
+>>     def derivative(x):
+>>         return 5 * x ** 4
+>> elif args.order == 6:
+>>     def polynomial(x):
+>>         return x ** 6 - 1
+>>
+>>     def derivative(x):
+>>         return 6 * x ** 5
+>> else:
+>>     raise ValueError(f"I don't know how to handle order {order}.")
+>> ~~~
+>> {: .language-python}
+>>
+>> This is quite verbose, and repeats itself. If they are familiar to you,
+>> you might want to use some more advanced features of Python to reduce
+>> the amount of repetition. For example, using dictionaries and lambdas:
+>>
+>> ~~~
+>> polynomials = {
+>>     3: lambda x : x ** 3 - 1,
+>>     5: lambda x : x ** 5 - 1,
+>>     6: lambda x : x ** 6 - 1
+>> }
+>>
+>> derivatives = {
+>>     3: lambda x : 3 * x ** 2,
+>>     5: lambda x : 5 * x ** 4,
+>>     6: lambda x : 6 * x ** 5
+>> }
+>>
+>> results = angle(
+>>     newton(polynomials[args.order], derivatives[args.order], initial_z, 20)
+>> )
+>> ~~~
+>> {: .language-python}
+>>
+>> Or using `functools.partial`:
+>>
+>> ~~~
+>> from functools import partial
+>>
+>> def polynomial(x, order):
+>>     return x ** order - 1
+>>
+>> def derivative(x, order):
+>>     if order == 0:
+>>         return 0
+>>     else:
+>>         return order * x ** (order - 1)
+>>
+>> results = angle(
+>>     newton(partial(polynomial, order=args.order),
+>>            partial(derivative, order=args.order),
+>>            initial_z,
+>>            20)
+>> )
+>> ~~~
+>> {: .language-python}
+> {: .solution}
+>
 > Now, adapt the instructions in the README into a shell script to allow the analysis
 > to be run automatically.
+>
+>> ## Solution
+>>
+>> ~~~
+>> mkdir results
+>> python bin/calc_fractal 3 results/data.dat
+>> python bin/fig1.py
+>> python bin/calc_fractal 5 results/data.dat
+>> python bin/fig2.py
+>> python bin/calc_fractal 6 results/data.dat
+>> python bin/fig3.py
+>> python bin/fig4.py
+>> ~~~
+>> {: .language-bash}
+> {: .solution}
 >
 > What other change would be needed to allow this analysis to be run unattended?
 >
 >> ## Solution
->>
->> TODO: code solution
 >>
 >> Currently the images are shown on the screen; the user must save and close
 >> each image. It would be better to use `savefig` to save the figure to disk,

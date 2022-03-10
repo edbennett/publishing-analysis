@@ -65,7 +65,7 @@ $ nano README.txt
 zipf analysis
 =============
 
-This repository contains code to observe whether books adhere to Zipf's law, as 
+This repository contains code to observe whether books adhere to Zipf's law, as
 done in support of the paper "Zipf analysis of 19th-century English-language books",
 V. Dracula, to appear in Annals of Computational Linguistics, 2022.
 
@@ -353,8 +353,31 @@ if there were more to do we could do things in stages, working incrementally.
 
 > ## Tidy up for yourself
 >
-> In the previous episode's challenges, you created a repository for the example
-> code downloaded. Use `git mv` now to start tidying up this repository.
+> In the previous episode's challenges, you created a `challenge` repository for the
+> example code downloaded. Use `git mv` now to start tidying up this repository.
+>
+>> ## Solution
+>>
+>> ~~~
+>> $ mkdir bin data results
+>> $ git mv *.py *.ipynb bin/
+>> $ git mv survey.csv data/
+>> $ touch results/.git_keep
+>> $ nano bin/calc_fractal.py
+>> $ # edit calc_fractal.py to place the output in the results/ directory
+>> $ nano bin/fig1.py
+>> $ # edit fig1.py to use data from the results/ directory
+>> $ nano bin/fig2.py
+>> $ # edit fig2.py to use data from the results/ directory
+>> $ nano bin/fig3.py
+>> $ # edit fig3.py to use data from the results/ directory
+>> $ nano bin/fig4.py
+>> $ # edit fig4.py to use data from the data/ directory
+>> $ git add bin
+>> $ git commit -m 'tidy directory structure'
+>> ~~~
+>> {: .language-bash}
+> {: .solution}
 {: .challenge}
 
 {% include links.md %}
