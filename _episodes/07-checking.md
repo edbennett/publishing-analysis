@@ -86,6 +86,9 @@ To test our `zipf` repository and its environment, we can enter the URL to the r
 into the [MyBinder home page][mybinder]. In principle we could test the repository state
 at any point in its history, and launch a specific notebook if we wanted. For now, we will
 test the most recent commit, and launch the Binder without targeting any one notebook.
+The environment takes a while to build, as it has a number of setup steps.
+(Unfortunately, the MyBinder service has limited resources, so sometimes will fail to
+build or fail to load due to lack of capacity or other maintenance issues.)
 
 If you want to encourage others to explore your data with Binder, the home page also gives
 you the option to add a badge to your README that will take users directly to a new Binder
