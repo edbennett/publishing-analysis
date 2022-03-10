@@ -33,7 +33,7 @@ testing; you don't know how someone else will interpret your instructions.
 Conversely doing things programmatically so that the complete analysis is fully
 automated takes more effort up front, but again makes it even easier to run your code.
 
-To start with, let's see what a descriptive README of the current project might look
+To start with, let's see what a descriptive README of the `zipf` project might look
 like.
 
 ~~~
@@ -43,15 +43,15 @@ To reproduce the figures in the publication, follow these steps:
 
 2. Use `countwords.py` to count the words in `frankenstein.txt`.
 
-      python countwords.py > results/frankenstein.csv
+      python bin/countwords.py > results/frankenstein.csv
 
 3. Use `plotcounts.py` to plot the resulting file.
 
-      python plotcounts.py
+      python bin/plotcounts.py
 
-4. Save the plot as `frankenstein.pdf`.
+4. Save the plot as `results/frankenstein.pdf`.
 
-5. Edit `countwords.py` and `plotcounts.py` to replace `frankenstein` with `dracula`.
+5. Edit `bin/countwords.py` and `bin/plotcounts.py` to replace `frankenstein` with `dracula`.
 
 6. Repeat the above instructions to generate `dracula.csv` and plot `dracula.pdf`.
 ~~~

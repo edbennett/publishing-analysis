@@ -247,7 +247,28 @@ Let's give it its own `data` directory for now.
 
 ~~~
 $ mkdir data
-$ git mv frankenstein.txt data
+$ git mv frankenstein.txt dracula.txt data
+~~~
+{: .language-bash}
+
+Now that this is done, we also need to change the programs that expect to see these
+files:
+
+~~~
+$ nano bin/countwords.py
+~~~
+{: .language-bash}
+
+~~~
+with open('data/frankenstein.txt', 'r') as reader:
+~~~
+{: .language-python}
+
+Now we can add this change to the repository, and commit the full adjustment to the
+directory structure.
+
+~~~
+$ git add bin/countwords.py
 $ git commit -m 'reorganise directory structure'
 $ git push origin main
 ~~~
