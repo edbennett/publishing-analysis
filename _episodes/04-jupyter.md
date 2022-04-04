@@ -152,7 +152,7 @@ x = np.linspace(0, max_x, 1000)
 {: .language-python}
 
 The `.get()` method of a dictionary will give us the element corresponding to the key
-we passed (`'SPIRAL_MAX_X''`), unless there is no such element, in which case it will
+we passed (`'SPIRAL_MAX_X'`), unless there is no such element, in which case it will
 return the second parameter (`20`). Since environment variables are always strings of
 text, we then need to convert the result into a number so that Matplotlib understands
 it.
