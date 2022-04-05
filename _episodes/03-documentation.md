@@ -169,6 +169,18 @@ look for `frankenstein.txt` any more. So, let's hold off committing it for now.
 >>                     metavar=('XMIN', 'XMAX'),
 >>                     default=None, help='X-axis limits')
 >> args = parser.parse_args()
+>>
+>> df = pd.read_csv(args.infile, header=None,
+>>                  names=('word', 'word_frequency'))
+>> df['rank'] = df['word_frequency'].rank(ascending=False,
+>>                                        method='max')
+>> df['inverse_rank'] = 1 / df['rank']
+>> ax = df.plot.scatter(x='word_frequency',
+>>                      y='inverse_rank',
+>>                      figsize=[12, 6],
+>>                      grid=True,
+>>                      xlim=args.xlim)
+>> plt.show()
 >> ~~~
 >> {: .language-python}
 > {: .solution}
