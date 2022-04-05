@@ -193,7 +193,18 @@ These files are now much shorter, so will be much quicker to install.
 >
 >> ## Solution
 >>
->> The environment for the `challenge` repository's requirements should have around 57
+>> Since this analysis includes running a Jupyter notebook, we need to have Jupyter
+>> installed in addition to the packages that are `import`ed in our code.
+>>
+>> ~~~
+>> $ conda create -n challenge
+>> $ conda activate challenge
+>> $ conda install numpy matplotlib pandas jupyter
+>> $ conda env export -f environment.yml
+>> ~~~
+>> {: .language-bash}
+>>
+>> The environment for the `challenge` repository's requirements should have around 125
 >> lines, while the full Anaconda environment is over 300 lines.
 > {: .solution}
 {: .challenge}
@@ -209,13 +220,14 @@ These files are now much shorter, so will be much quicker to install.
 >>
 >> ~~~
 >> $ conda create -n challenge_pip python=3.9
+>> $ conda activate challenge_pip
 >> ~~~
 >> {: .language-bash}
 >>
 >> Now, install Python packages only using `pip`, not with `conda`.
 >>
 >> ~~~
->> $ pip install numpy matplotlib pandas
+>> $ pip install numpy matplotlib pandas jupyter
 >> ~~~
 ~~ {: .language-bash}
 >>
@@ -229,9 +241,9 @@ These files are now much shorter, so will be much quicker to install.
 >> ~~~
 >> {: .language-bash}
 >>
->> We could still use `conda env export` here, and it would list our packages
->> installed from `pip`, under a specific entry designating that they were installed
->> via `pip`.
+>> We could still use `conda env export` here to generate an `environment.yml` file, and it
+>> would list our packages installed from `pip`, under a specific entry designating that they
+>> were installed via `pip`.
 > {: .solution}
 {: .challenge}
 
