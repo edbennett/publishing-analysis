@@ -185,18 +185,16 @@ These files are now much shorter, so will be much quicker to install.
 > if you are interested.
 {: .callout}
 
-> ## Define some environments
->
-> Use `pip freeze` and `conda env export` to define `requirements.txt` and
-> `environment.yml` files for your base Anaconda environment. How long are they?
+> ## Define another environment
 >
 > Create a new Conda environment with just the packages you need for the `challenge`
-> repository, and export `requirements.txt` and `environment.yml` files. How long
-> are these files compared to the ones for the base Anaconda environment?
+> repository, and export an `environment.yml` file. How long
+> is this file compared to the one for the base Anaconda environment?
 >
 >> ## Solution
 >>
->> TODO
+>> The environment for the `challenge` repository's requirements should have around 57
+>> lines, while the full Anaconda environment is over 300 lines.
 > {: .solution}
 {: .challenge}
 
