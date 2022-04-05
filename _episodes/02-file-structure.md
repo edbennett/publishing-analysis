@@ -237,7 +237,7 @@ change so that it can be committed more easily.
 
 ~~~
 $ mkdir bin
-$ git mv *.py bin
+$ git mv *.py *.sh bin
 ~~~
 {: .language-bash}
 
@@ -381,7 +381,7 @@ if there were more to do we could do things in stages, working incrementally.
 >>
 >> ~~~
 >> $ mkdir bin data results
->> $ git mv *.py *.ipynb bin/
+>> $ git mv calc_fractal.py fig?.py bin/
 >> $ git mv survey.csv data/
 >> $ touch results/.git_keep
 >> $ nano bin/calc_fractal.py
@@ -394,7 +394,7 @@ if there were more to do we could do things in stages, working incrementally.
 >> $ # edit fig3.py to use data from the results/ directory
 >> $ nano bin/fig4.py
 >> $ # edit fig4.py to use data from the data/ directory
->> $ git add bin
+>> $ git add bin results
 >> $ git commit -m 'tidy directory structure'
 >> ~~~
 >> {: .language-bash}

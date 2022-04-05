@@ -241,8 +241,14 @@ No commits yet
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 	.gitignore
+	book_summary.sh
+	collate.py
+	countwords.py
+	dracula.txt
 	frankenstein.txt
-	zipf.py
+	plotcounts.py
+	script_template.py
+	utilities.py
 
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
@@ -352,4 +358,5 @@ doing what it can for now; as standards develop, it may be updated.
 {% include links.md %}
 
 [github]: https://github.com
+[git-novice]: https://softwarecarpentry.github.io/git-novice
 [turing-way]: https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html
