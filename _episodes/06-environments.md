@@ -198,6 +198,43 @@ These files are now much shorter, so will be much quicker to install.
 > {: .solution}
 {: .challenge}
 
+> ## Using `pip` and `requirements.txt`
+>
+> Try and create an environment for the `challenge` repository that installs packages
+> via `pip` and export it to a `requirements.txt` file.
+>
+>> ## Solution
+>>
+>> Firstly, create a new Conda environment with just Python.
+>>
+>> ~~~
+>> $ conda create -n challenge_pip python=3.9
+>> ~~~
+>> {: .language-bash}
+>>
+>> Now, install Python packages only using `pip`, not with `conda`.
+>>
+>> ~~~
+>> $ pip install numpy matplotlib pandas
+>> ~~~
+~~ {: .language-bash}
+>>
+>> If your project depended on non-Python packages (for example, recent versions of
+>> CMake or GNU Make), then you could still install these from Conda.
+>>
+>> Now, to export a requirements file:
+>>
+>> ~~~
+>> $ pip freeze > requirements.txt
+>> ~~~
+>> {: .language-bash}
+>>
+>> We could still use `conda env export` here, and it would list our packages
+>> installed from `pip`, under a specific entry designating that they were installed
+>> via `pip`.
+> {: .solution}
+{: .challenge}
+
 
 {% include links.md %}
 
