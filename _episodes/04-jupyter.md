@@ -232,6 +232,13 @@ in and of itself may be more achievable in the time you have available.
 > notebook to the repository and commit it; what messages do you see? Has the notebook
 > been changed in the working directory?
 >
+>> ## Solution
+>>
+>> `nbstripout` works very quietly&mdash;the version of the notebook
+>> in your working directory is left unchanged, and no message is given
+>> that the committed version has been changed.
+> {: .solution}
+>
 > Now that the notebook is version controlled, do some tidying of the repository:
 >
 > * Adjust the notebook to output to files rather than the screen
