@@ -225,6 +225,14 @@ Things like the README, LICENSE, and CITATION, that apply to the whole repositor
 users will need to see first) should be at the root of the repository. Code should go in
 its own subdirectory&mdash;by convention this is  called `bin`.
 
+> ## `bin` and `src`
+>
+> Like most conventions, there are alternatives to the `bin` directory.
+> Another common alternative is to use a `src` directory. For Python
+> packages specifically, you may also see a directory with the same
+> name as the repository
+{: .callout}
+
 If you have a lot of code, then it might be a good idea to split it up. A directory with
 dozens or hundreds of files in is not conducive to easy reading! Again, grouping related
 files together is the target&mdash;for example, you could group all of your figure files
