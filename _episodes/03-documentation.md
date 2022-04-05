@@ -97,6 +97,11 @@ Let's start with `countwords.py`. To begin, we add `argparse` to our imports at 
 of the file.
 
 ~~~
+$ nano bin/countwords.py
+~~~
+{: .language-bash}
+
+~~~
 import argparse
 ~~~
 {: .language-python}
