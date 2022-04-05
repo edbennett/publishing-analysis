@@ -118,6 +118,13 @@ repositories get this treatment.
 > it) is very much recommended!
 {: .callout}
 
+> ## More to ignore
+>
+> When working with Jupyter notebooks, you may have noticed that they
+> generate an `.ipynb_checkpoints` directory, that clutters the output
+> of `git status`. We can fix that by adding it to our `.gitignore`.
+{: .callout}
+
 ## Passing arguments to notebooks
 
 Unlike regular Python programs, notebooks can't take command-line arguments. But we've
