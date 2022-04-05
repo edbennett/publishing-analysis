@@ -305,7 +305,7 @@ Results will be placed in a `results/` directory.
 Now that the README and the code are consistent, we can commit this:
 
 ~~~
-$ git add bin/countwords.py bin/plotcounts.py README.txt
+$ git add bin/countwords.py bin/plotcounts.py bin/run_analysis.sh README.txt
 $ git commit -m 'automate analysis'
 $ git push origin main
 ~~~
