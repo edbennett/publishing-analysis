@@ -386,7 +386,7 @@ the next one, and so on, until we get to the point we have now reached.
 > Currently this will generate the files needed for `fig3.py`, but must
 > be edited to allow `fig1.py` and `fig2.py` to run correctly.
 >
-> Adapt `calc_fractal.py` to allow this parameter to instead by set by a command-line
+> Adapt `calc_fractal.py` to allow this parameter to instead be set by a command-line
 > argument.
 >
 >> ## Solution
