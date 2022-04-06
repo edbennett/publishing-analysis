@@ -59,8 +59,8 @@ One good option for publishing code is to use a data repository. There is a wide
 range of data repositories available, many of which are specialist towards particular disciplines. Many potential venues for publishing software (and many other digital
 services to enable open science) can be searched at the [European Open Science Cloud][eosc].
 It's also possible that your institution hosts its own data repository,
-and/or mandates a specific one. Your institution's Open Access policy, if it has one,
-should have more detail on this.
+and/or mandates a specific one. Your institution's Open Research or Open Data policy,
+if it has one, should have more detail on this.
 
 Today we'll look at a general-purpose data repository called
 [Zenodo][zenodo]. Zenodo is hosted by CERN (the European Centre for Nuclear Research
@@ -166,7 +166,7 @@ publication (that can be used instead of or in addition to Zenodo).
 
 > ## Home turf
 >
-> Try and find your own institution's policy on open access. Does it have a
+> Try and find your own institution's policy on open research or open data. Does it have a
 > local repository for source code (or research data more generally), or
 > recommendations on where to publish it?
 {: .challenge}
