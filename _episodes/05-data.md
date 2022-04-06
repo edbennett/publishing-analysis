@@ -260,8 +260,12 @@ performing, so we won't go into more detail about how to create this.
 > ## Get some data
 >
 > Use `curl` to download the [Pakistan biomass field survey][biomass-field] from the
-> World Bank. Adjust the script in the `challenge` repository so that this
-> is done automatically as part of the analysis.
+> World Bank. This file is currently included in the repository as `surveys.csv`.
+> Adjust the script in the `challenge` repository so that this
+> is downloaded automatically as part of the analysis.
+>
+> Since this file is now obtained automatically, there is no need to keep the
+> copy in the repository. Remove it, and commit and push these changes.
 {: .challenge}
 
 {% include links.md %}
