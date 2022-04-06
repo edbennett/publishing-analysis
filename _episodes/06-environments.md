@@ -121,6 +121,12 @@ $ conda install pandas matplotlib
 ~~~
 {: .language-bash}
 
+If we're using any tools installed without `import`ing them, then they won't be
+picked up by `grep`; in that case we need to check through our shell scripts to
+see if any commands are being run that need to be installed. If your analysis
+includes Jupyter Notebooks, for example, then you will need `jupyter` installed,
+even if you don't ever use `import jupyter`.
+
 It's a good idea to do a quick check now that this environment can indeed run our analysis,
 in case we've forgotten anything:
 
