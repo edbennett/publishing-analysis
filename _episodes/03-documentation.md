@@ -71,6 +71,13 @@ we would have had to pore over the code to work out what it did, and guess at wh
 exactly was done. If you have time to write this but not to do more work to automate
 the analysis, then it is definitely work worth doing.
 
+> ## Does it work?
+>
+> Try following the instructions in the README above. Do they work?
+> If not, then try and identify what is causing the failure, and fix it.
+> If you get stuck, ask a helper for support.
+{: .challenge}
+
 
 ## Avoid manually editing parameters
 
@@ -142,6 +149,16 @@ word_counts = count_words(args.infile)
 util.collection_to_csv(word_counts, num=args.num)
 ~~~
 {: .language-python}
+
+We can now check that the analysis described in the README still works, once the
+function names are adjusted.
+
+~~~
+$ python bin/countwords.py data/frankenstein.txt --num 100 > results/frankenstein.csv
+$ python bin/countwords.py data/dracula.txt --num 100 > results/dracula.csv
+~~~
+{: .language-bash}
+
 
 Currently the README is no longer correct, since the program doesn't automatically
 look for `frankenstein.txt` any more. So, let's hold off committing it for now.
@@ -220,6 +237,26 @@ plt.savefig(args.outfile)
 
 Since the program is ending anyway, we don't need a `plt.close()` here.
 
+Checking again that our code still works after this modification:
+
+~~~
+$ python bin/plotcounts.py results/frankenstein.csv --outfile results/frankenstein.pdf
+$ python bin/plotcounts.py results/dracula.csv --outfile results/dracula.pdf
+$ ls -l results
+~~~
+{: .language-bash}
+
+~~~
+total 72
+-rw-r--r--  1 ed  staff    963  6 Apr 16:45 dracula.csv
+-rw-r--r--  1 ed  staff  13071  6 Apr 16:50 dracula.pdf
+-rw-r--r--  1 ed  staff    948  6 Apr 16:45 frankenstein.csv
+-rw-r--r--  1 ed  staff  12245  6 Apr 16:50 frankenstein.pdf
+~~~
+{: .output}
+
+Your output will differ, but should show both PDF files modified in the last minute or so.
+
 ## Avoid bare code
 
 Frequently we define functions in Python files. In order to import these into other
@@ -265,6 +302,8 @@ if __name__ == '__main__':
 > ## Try it yourself
 >
 > Adjust the `plotcounts.py` file to use `if __name__ == '__main__'` guards.
+>
+> Check that it still works correctly afterwards.
 {: .challenge}
 
 
@@ -302,7 +341,26 @@ Results will be placed in a `results/` directory.
 ~~~
 {: .output}
 
-Now that the README and the code are consistent, we can commit this:
+Before we commit this, let's check that it works!
+
+~~~
+$ bash bin/run_analysis.sh
+$ ls -l results
+~~~
+{: .language-bash}
+
+~~~
+total 72
+-rw-r--r--  1 ed  staff    963  6 Apr 16:55 dracula.csv
+-rw-r--r--  1 ed  staff  13071  6 Apr 16:55 dracula.pdf
+-rw-r--r--  1 ed  staff    948  6 Apr 16:55 frankenstein.csv
+-rw-r--r--  1 ed  staff  12245  6 Apr 16:55 frankenstein.pdf
+~~~
+{: .output}
+
+Now both CSV and both PDF files should all be modified within the last minute or so.
+
+As the README and the code are now consistent and working, we can commit this:
 
 ~~~
 $ git add bin/countwords.py bin/plotcounts.py bin/run_analysis.sh README.txt
