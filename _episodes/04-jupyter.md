@@ -199,7 +199,7 @@ in and of itself may be more achievable in the time you have available.
 >
 > In response to a query from Sanjay, Prof. Nuss provides [the Jupyter notebook that she used to perform the analysis](../files/maizeexports.ipynb).
 >
-> Sanjay finds that when he runs Prof. Nuss's code, it doesn't give the same plot As
+> Sanjay finds that when he runs Prof. Nuss's code, it doesn't give the same plot as
 > is included in the paper draft. What has happened to cause this?
 >
 >> ## Solution
