@@ -224,6 +224,10 @@ id_rsa.pub
 >   these are useless on anyone else's computer
 > * Duplicate or old copies of code, since we'll be using Git to manage the
 >   history of the code from now on.
+>
+> GitHub has
+> [a repository of common `.gitignore` files for various languages][github-gitignore]
+> and technologies that you may want to borrow from.
 {: .callout}
 
 Now, a check of `git status` will show us what Git would like to commit:
@@ -358,5 +362,6 @@ doing what it can for now; as standards develop, it may be updated.
 {% include links.md %}
 
 [github]: https://github.com
+[github-gitignore]: https://github.com/github/gitignore
 [git-novice]: https://softwarecarpentry.github.io/git-novice
 [turing-way]: https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html
