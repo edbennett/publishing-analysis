@@ -170,6 +170,22 @@ look for `frankenstein.txt` any more. So, let's hold off committing it for now.
 > Check out the [argparse documentation][argparse] to find out more.
 {: .callout}
 
+> ## `argparse` alternatives
+>
+> `argparse` is far from the only way to parse command-line arguments; there is a
+> variety of packages available. One popular alternative is [Click][click], which
+> makes use of function "decorators" to define commands and arguments. If you see
+> functions when reading others' code that contain lines like
+>
+> ~~~
+> @click.command()
+> ~~~
+> {: .language-python}
+>
+> above function definitions, then this code is making use of Click. You can read
+> more about Click at [the Click documentation][click].
+{: .callout}
+
 > ## Try it yourself
 >
 > Get the `plotcounts.py` program to also use `argparse`. Allow the user to specify
@@ -558,6 +574,7 @@ the next one, and so on, until we get to the point we have now reached.
 {% include links.md %}
 
 [argparse]: https://docs.python.org/3/library/argparse.html
+[click]: https://click.palletsprojects.com/
 [make-novice]: https://swcarpentry.github.io/make-novice/
 [nextflow]: https://www.nextflow.io
 [snakemake]: https://snakemake.github.io
