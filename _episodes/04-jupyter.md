@@ -96,6 +96,17 @@ If we want to go a step further, we can even get `nbstripout` to attach itself t
 local copy of the repository, and automatically strip notebook as we commit them, so
 that we never accidentally commit a notebook with output in.
 
+> ## Git smudge/clean filters
+>
+> `nbstripout` is an example of a Git clean filter, which silently adjust files
+> as they are read into a Git repository. Since different people will have tools
+> installed in different places, Git does not pull or push the definitions of filters;
+> instead, each person cloning a repository (or each computer you clone it to) will
+> need to install the filter to their local copy separately.
+>
+> More detail on how smudge and clean filters work can be found in
+> [this article on RedHat.com][redhat-smudge-clean].
+
 ~~~
 $ nbstripout --install
 ~~~
@@ -251,3 +262,4 @@ in and of itself may be more achievable in the time you have available.
 {% include links.md %}
 
 [nbdime]: https://nbdime.readthedocs.io/en/latest/
+[redhat-smudge-clean]: https://developers.redhat.com/articles/2022/02/02/protect-secrets-git-cleansmudge-filter#
