@@ -106,6 +106,7 @@ that we never accidentally commit a notebook with output in.
 >
 > More detail on how smudge and clean filters work can be found in
 > [this article on RedHat.com][redhat-smudge-clean].
+{: .callout}
 
 ~~~
 $ nbstripout --install
