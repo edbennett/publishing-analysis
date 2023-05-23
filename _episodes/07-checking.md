@@ -20,7 +20,7 @@ we turn an environment definition into an environment we can use? Conda gives us
 to do this, too.
 
 ~~~
-$ conda env create -f=environment.yml -n conda-test
+$ conda env create -f environment.yml -n conda-test
 $ conda activate conda-test
 ~~~
 {: .language-bash}
