@@ -124,6 +124,19 @@ see if any commands are being run that need to be installed. If your analysis
 includes Jupyter Notebooks, for example, then you will need `jupyter` installed,
 even if you don't ever use `import jupyter`.
 
+Conda can also provide tools that aren't Python packages, like `curl`.
+If you're using a tool,
+or a specific version of a tool,
+that is likely to not be installed on everyone's computer,
+then you should specify that too.
+`curl` is installed on most operating systems as of 2023,
+but it is possible that somsone will need it.
+
+~~~
+$ conda install curl
+~~~
+{: .language-bash}
+
 It's a good idea to do a quick check now that this environment can indeed run our analysis,
 in case we've forgotten anything:
 
