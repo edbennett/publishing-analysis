@@ -105,10 +105,19 @@ $ git rm data/frankenstein.txt data/dracula.txt
 Let's not commit this until we've also documented what the user should do instead to
 get the data that the code expects to operate on. One option would be to place links to
 the text of the two books in the README, and give instructions to download them and place
-them in the `data` directory (after creating it, if we don't decide to do that).
+them in the `data` directory&mdash;after creating it, if we don't decide to do that.
 
 However, we'll choose to automate this. To download data from the Internet, we'll use the
 `curl` tool, which is installed as part of most Unix-like systems.
+
+For the time being, let's recreate the `data` directory
+(which Git has helpfully deleted,
+as there were no files left in it).
+
+~~~
+$ mkdir data
+~~~
+{: .language-bash}
 
 > ## `wget`
 >
@@ -142,7 +151,7 @@ $ nano bin/run_analysis.sh
 {: .language-bash}
 
 ~~~
-mkdir data
+mkdir -p data
 curl -L -o data/frankenstein.txt https://www.gutenberg.org/files/84/84-0.txt
 curl -L -o data/dracula.txt https://www.gutenberg.org/files/345/345-0.txt
 ~~~
