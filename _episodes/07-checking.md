@@ -3,12 +3,15 @@ title: "Verifying your analysis"
 teaching: 20
 exercises: 20
 questions:
+- "How can I use environment definitions to get started on a new machine?"
 - "How can I check that my analysis is working?"
 - "How do I verify that the environment definition is correct?"
 objectives:
+- "Be able to use `pip` and `conda` to create new environments from definition files."
 - "Be able to test that an analysis gives correct result."
 - "Be able to use MyBinder to test code in a clean environment."
 keypoints:
+- "Use `pip install -r` and `conda env create` to create a new environment from a definition."
 - "Running your full analysis end-to-end in a clean environment will highlight most problems."
 - "Binder services (e.g. MyBinder) will create an environment in the cloud based on your definiiton."
 ---
