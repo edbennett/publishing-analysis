@@ -12,7 +12,7 @@ objectives:
 - "Be able to categorise files into those to commit, and those to omit"
 keypoints:
 - "Publishing analysis code allows others to better understand what you have done, to verify that your analysis does what you claim, and to build on your work.e"
-- "Use `git init`, `git add`, `git commit`, `git remote add`, and `git push`, as discussed in the [Software Carpentry Git lesson][git-novice]"
+- "Use `git init`, `git add`, `git commit`, `git remote add`, and `git push`, as discussed in the [Software Carpentry Git lesson](https://swcarpentry.github.com/git-novice)"
 - "Include all the code that you have written to use in this analysis."
 - "Leave out e.g. temporary copies, old backup versions, files containing secret or confidential information, and supporting files generated automatically."
 ---
