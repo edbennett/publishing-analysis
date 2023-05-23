@@ -337,7 +337,7 @@ $ nano bin/run_analysis.sh
 {: .language-bash}
 
 ~~~
-mkdir results
+mkdir -p results
 for book in dracula frankenstein
 do
     python bin/countwords.py data/${book}.txt --num 100 > results/${book}.csv
@@ -549,7 +549,7 @@ the next one, and so on, until we get to the point we have now reached.
 >> ## Solution
 >>
 >> ~~~
->> mkdir results
+>> mkdir -p results
 >> python bin/calc_fractal 3 results/data.dat
 >> python bin/fig1.py
 >> python bin/calc_fractal 5 results/data.dat
